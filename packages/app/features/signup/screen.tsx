@@ -1,4 +1,3 @@
-import { YStack } from "@my/ui";
 import { useAuth, useSignUp } from "app/utils/clerk";
 import { OAuthStrategy } from "@clerk/types";
 import { useRouter } from "solito/router";
@@ -21,7 +20,10 @@ export function SignUpScreen() {
     push("/signup/sso-oauth/" + strategy);
   };
 
-  const handleEmailSignUpWithPress = async (emailAddress, password) => {
+  const handleEmailSignUpWithPress = async (
+    emailAddress: string,
+    password: string
+  ) => {
     await signUp.create({
       emailAddress,
       password,
@@ -32,12 +34,12 @@ export function SignUpScreen() {
   };
 
   return (
-    <YStack f={1} jc="center" ai="center" space>
-      <SignUpSignInComponent
-        type="sign-up"
-        handleOAuthWithPress={handleOAuthSignUpWithPress}
-        handleEmailWithPress={handleEmailSignUpWithPress}
-      />
-    </YStack>
+    // <YStack f={1} jc="center" ai="center" space>
+    <SignUpSignInComponent
+      type="sign-up"
+      handleOAuthWithPress={handleOAuthSignUpWithPress}
+      handleEmailWithPress={handleEmailSignUpWithPress}
+    />
+    // </YStack>
   );
 }

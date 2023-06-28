@@ -17,7 +17,7 @@ export function SSOOAuthScreen() {
   const createUserMutation = trpc.user.create.useMutation();
   const currentUser = trpc.user.current.useQuery();
 
-  const createUserInDatabase = async (userId, emailAddress) => {
+  const createUserInDatabase = async (userId: string, emailAddress: string) => {
     await createUserMutation.mutate({
       id: userId,
       email: emailAddress,

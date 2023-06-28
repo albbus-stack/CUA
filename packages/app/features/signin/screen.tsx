@@ -1,4 +1,3 @@
-import { YStack } from "@my/ui";
 import { useAuth, useSignIn } from "app/utils/clerk";
 import { OAuthStrategy } from "@clerk/types";
 import { useRouter } from "solito/router";
@@ -37,7 +36,10 @@ export function SignInScreen() {
     await redirectIfSignedIn();
   };
 
-  const handleEmailSignInWithPress = async (emailAddress, password) => {
+  const handleEmailSignInWithPress = async (
+    emailAddress: string,
+    password: string
+  ) => {
     await signIn.create({
       identifier: emailAddress,
       password,
@@ -46,12 +48,12 @@ export function SignInScreen() {
   };
 
   return (
-    <YStack f={1} jc="center" ai="center" space>
-      <SignUpSignInComponent
-        type="sign-in"
-        handleOAuthWithPress={handleOAuthSignInWithPress}
-        handleEmailWithPress={handleEmailSignInWithPress}
-      />
-    </YStack>
+    // <YStack f={1} jc="center" ai="center" space>
+    <SignUpSignInComponent
+      type="sign-in"
+      handleOAuthWithPress={handleOAuthSignInWithPress}
+      handleEmailWithPress={handleEmailSignInWithPress}
+    />
+    // </YStack>
   );
 }
